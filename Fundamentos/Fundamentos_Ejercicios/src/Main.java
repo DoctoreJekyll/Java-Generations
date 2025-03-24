@@ -11,6 +11,8 @@ public class Main {
         Fibon k = new Fibon();
         System.out.println("sdasdasdas");
         System.out.println("sdasdasdas");
+        System.out.println("sdasdasdas");
+        System.out.println("sdasdasdas");
     }
 
 }
