@@ -194,5 +194,9 @@ public class Main {
         System.out.println("Testing Git");
     }
 
+    public static void TestBranch() {
+        System.out.println("Testing Branch");
+    }
+
 }
 
