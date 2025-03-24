@@ -9,6 +9,12 @@ public class Main {
     public static void main(String[] args)
     {
         Fibon k = new Fibon();
+        System.out.println("sdasdasdas");
+        System.out.println("sdasdasdas");
+        System.out.println("sdasdasdas");
+        System.out.println("sdasdasdas");
+        System.out.println("sdasdasdas");
+        System.out.println("sdasdasdas");
     }
 
 }
