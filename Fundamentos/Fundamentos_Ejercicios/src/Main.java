@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -81,7 +83,7 @@ public class Main {
         System.out.println("El segundo valor no puede ser 0");
     }
 
-    public static void ChainsTwo(Scanner scanner) {
+    public static void ChainsTwo(@NotNull Scanner scanner) {
         System.out.println("Escribe texto1");
         String text1 = scanner.nextLine();
         System.out.println("Escribe texto2");
@@ -128,8 +130,8 @@ public class Main {
         System.out.println("     " + verde + "     |||||||||||||  " + reset);
     }
 
-    public static void ShopList(Scanner sc) {
-        List<String> list = new ArrayList();
+    public static void ShopList(@org.jetbrains.annotations.NotNull Scanner sc) {
+        List<String> list = new ArrayList<>();
         boolean duplicated = false;
 
         String item;
