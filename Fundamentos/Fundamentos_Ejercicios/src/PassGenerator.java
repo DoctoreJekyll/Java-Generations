@@ -1,15 +1,23 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class PassGenerator
 {
-    public int digitsUsed()
+
+    public void Menu()
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Cuantos digitos quiere usar");
+        int choice;
+        System.out.println("Welcome to the Pass Generator");
 
-        return sc.nextInt();
+        System.out.println("Pulse cuantos digitos quiere que tenga su contraseña");
+        choice = sc.nextInt();
+        sc.nextLine();
+
+        System.out.println(GenerateThree(choice));
+        sc.close();
     }
 
     public List<Character> lowKeys(){
@@ -45,21 +53,49 @@ public class PassGenerator
     }
 
 
-    private void GenerateOne(){
+    private String GenerateOne(int digits){
+        Random r = new Random();
+
         List<Character> l = lowKeys();
-        List<Character> pass = new ArrayList<>();
+        StringBuilder pass = new StringBuilder();
 
-        for(int i = 0; i<digitsUsed(); i++){
-
+        for(int i = 0; i<digits; i++){
+            pass.append(l.get(r.nextInt(l.size())));
         }
 
+        return pass.toString();
     }
 
-    private void GenerateTwo(){
+    private String GenerateTwo(int digits){
 
+        Random r = new Random();
+        List<Character> l = lowKeys();
+        List<Character> h = highKeys();
+
+        StringBuilder pass = new StringBuilder();
+
+        while (pass.length() < digits){
+            pass.append(l.get(r.nextInt(l.size())));
+            pass.append(h.get(r.nextInt(h.size())));
+        }
+
+        return pass.toString();
     }
 
-    private void GenerateThree(){
+    private String GenerateThree(int digits){
+        Random r = new Random();
+        List<Character> l = lowKeys();
+        List<Character> h = highKeys();
+        List<Character> specialChars = specialChars();
 
+        StringBuilder pass = new StringBuilder();
+
+        while (pass.length() < digits){
+            pass.append(l.get(r.nextInt(l.size())));
+            pass.append(h.get(r.nextInt(h.size())));
+            pass.append(specialChars.get(r.nextInt(specialChars.size())));
+        }
+
+        return pass.toString();
     }
 }

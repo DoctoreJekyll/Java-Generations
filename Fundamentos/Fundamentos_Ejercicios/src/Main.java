@@ -8,7 +8,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args)
     {
-
+        Matrix matrix = new Matrix();
+        matrix.play();
     }
 
     public static int MaxNum(int a, int b) {
