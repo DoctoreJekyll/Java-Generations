@@ -1,0 +1,80 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba web html etiquetas</title>
+</head>
+<body>
+    <title>Test primer archivo html</title>
+    <h1>TEST</h1>
+    <H2>TEST2</H2>
+    <div>
+        <ul>
+            <li>Elemento lista</li>
+            <li>Elemento lista 2</li>
+            <li>Elemento lista 3</li>
+        </ul>
+    </div>
+    <div>
+        <span>Test enlaces</span>
+        <div>
+            <a href="https://bsky.app/">Bluesky</a>
+        </div>
+    </div>
+    <div>
+        <p><h3>Pruebas formularios</h3></p>
+    </div>
+    <div>
+        <form>
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div>
+                <label for="correo">Correo electrónico:
+                </label> <input type="email" id="correo" name="correo" required>
+            </div>
+            <div> <label for="fecha">Fecha de nacimiento:</label>
+                <input type="date" id="fecha" name="fecha">
+            </div>
+            <div> <label for="archivo">Adjuntar
+                    archivo:</label> <input type="file" id="archivo" name="archivo"> </div>
+            <div> <button type="submit">Enviar</button>
+                <div>
+                    <textarea name="Carta presentacion" rows="10" cols="50">Escribe algo aqui
+                    </textarea>
+                </div>
+            </div>
+            <div>
+                <h1>Pais origen</h1>
+                <div>
+                    <select name="Paises" id="2">
+                        <option value="1">Opcion 1</option>
+                        <option value="2">Opcion 2</option>
+                        <option value="3">Opcion 3</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <h2>Prueba Tablas</h2>
+        <div>
+            <table>
+                <tr>
+                    <td>Celda 1</td>
+                    <td>Celda 2</td>
+                    <td>Celda 3</td>
+                </tr>
+                <tr>
+                    <td>Celda 4</td>
+                    <td>Celda 5</td>
+                    <td>Celda 6</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>
