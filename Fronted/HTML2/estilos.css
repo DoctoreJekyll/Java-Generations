@@ -1,0 +1,17 @@
+span{
+    color: aqua;
+}
+
+p{
+    color: blue;
+    font-size: 4em;
+}
+
+#idtest{
+    font-size: 6px;
+}
+
+.classtest{
+    font-size: 50px;
+    color: red;
+}
