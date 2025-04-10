@@ -1,0 +1,78 @@
+.font{
+    font-family: "Luxurious Roman", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: aqua;
+    margin: 20px;
+    border: red solid;
+}
+
+h1{
+    color: blue;
+}
+
+.resaltado{
+    background-color: yellow;
+}
+
+#especial{
+    border: red solid;
+}
+
+.superbody{
+    background-color: rgb(182, 182, 182);
+}
+
+h2{
+    color: green;
+}
+
+.superdiv{
+    width: 150px;
+    margin: 25% auto;
+    border: purple solid;
+    border-radius: 25px;
+    padding: 10%;
+}
+
+ol{
+    color: brown;
+}
+
+ul{
+    list-style: none;
+}
+
+.mybtn{
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 3px 3px gray;
+    padding: 10px;
+}
+
+.mybtn:hover{
+    background-color: blueviolet;
+    transition: 0.5s;
+}
+
+.mybtn:active{
+    background-color: black;
+}
+
+.mybtn.clicked{
+    background-color: darkred;
+}
+
+.mytransition{
+    margin: 25px auto;
+    padding: 25px auto;
+    background-color: chartreuse;
+    transition: background-color 0.5s, transform 0.3s;
+}
+
+.mytransition:hover{
+    background-color: blueviolet;
+    transition: 0.5s ease-in-out;
+}
