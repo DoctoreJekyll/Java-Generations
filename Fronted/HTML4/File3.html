@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            flex: 1 1 25%; /* base 25%, puede crecer y reducir */
+            padding: 20px;
+        }
+
+        @media screen and (max-width: 992px) {
+            .column {
+                flex: 1 1 50%; /* 2 columnas */
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .column {
+                flex: 1 1 100%; /* 1 columna */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="column" style="background-color: #aaa;">
+            <h2>Column 1</h2>
+            <p>Texto tal tal</p>
+        </div>
+        <div class="column" style="background-color: #ddd;" >
+            <h2>Column 2</h2>
+            <p>Texto tal tal</p>
+        </div>
+        <div class="column" style="background-color: #ccc;">
+            <h2>Column 3</h2>
+            <p>Texto tal tal</p>
+        </div>
+        <div class="column" style="background-color: #bbb;">
+            <h2>Column 4</h2>
+            <p>Texto tal tal</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid Responsive con Media Queries</title>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 columnas por defecto */
+      gap: 15px;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .grid-item {
+      background-color: #4CAF50;
+      color: white;
+      padding: 30px 10px;
+      text-align: center;
+      font-size: 1.2em;
+      border-radius: 6px;
+    }
+
+    /* 🎯 Cambiamos a 2 columnas cuando el ancho es menor a 600px */
+    @media (max-width: 600px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-container">
+    <div class="grid-item">Elemento 1</div>
+    <div class="grid-item">Elemento 2</div>
+    <div class="grid-item">Elemento 3</div>
+    <div class="grid-item">Elemento 4</div>
+    <div class="grid-item">Elemento 5</div>
+    <div class="grid-item">Elemento 6</div>
+    <div class="grid-item">Elemento 7</div>
+    <div class="grid-item">Elemento 8</div>
+  </div>
+
+</body>
+</html>

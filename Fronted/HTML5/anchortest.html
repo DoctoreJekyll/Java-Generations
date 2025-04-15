@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid con tamaños personalizados</title>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: 150px 1fr minmax(100px, 200px);
+      gap: 10px;
+      padding: 10px;
+      background-color: #f4f4f4;
+      height: 200px;
+      border: 2px solid #ccc;
+    }
+
+    .grid-item {
+      background-color: #607D8B;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 1em;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-container">
+    <div class="grid-item">Columna 1<br>(150px fija)</div>
+    <div class="grid-item">Columna 2<br>(1fr flexible)</div>
+    <div class="grid-item">Columna 3<br>(min 100px / max 200px)</div>
+  </div>
+
+</body>
+</html>

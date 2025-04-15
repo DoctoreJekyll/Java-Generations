@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid Template Areas</title>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      gap: 10px;
+      padding: 10px;
+      background-color: #f2f2f2;
+    }
+
+    .header {
+      grid-area: header;
+      background-color: #4CAF50;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background-color: #2196F3;
+      padding: 20px;
+      height: 30pc;
+      color: white;
+    }
+
+    .main {
+      grid-area: main;
+      background-color: #FFC107;
+      height: 30pc;
+      padding: 20px;
+      color: black;
+    }
+
+    .footer {
+      grid-area: footer;
+      background-color: #9C27B0;
+      padding: 20px;
+      height: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+.grid-container {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header"
+    "sidebar"
+    "main"
+    "footer";
+}
+}
+  </style>
+</head>
+<body>
+
+  <div class="grid-container">
+    <div class="header">Encabezado (Header)</div>
+    <div class="sidebar">Barra lateral (Sidebar)</div>
+    <div class="main">Contenido principal (Main)</div>
+    <div class="footer">Pie de página (Footer)</div>
+  </div>
+
+</body>
+</html>

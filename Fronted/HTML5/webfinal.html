@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal de Noticias</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .contenedor {
+      display: grid;
+      grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      grid-area: header;
+      background-color: #011620;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .eslogan {
+      font-size: 1em;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    nav {
+      grid-area: nav;
+      background-color: #011620;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    main {
+      grid-area: main;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+
+    .noticia-principal {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .noticia-principal img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .noticias-secundarias {
+      display: grid;
+      gap: 15px;
+    }
+
+    .noticia-secundaria {
+      background-color: white;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 10px;
+    }
+
+    .noticia-secundaria img {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .noticia-secundaria h4 {
+      margin: 0;
+      font-size: 0.95em;
+    }
+
+    footer{
+        grid-area: footer;
+        background-color: #011620;
+        color: #ccc;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    <header>
+      <div class="logo">Noticias Hoy</div>
+      <div class="eslogan">Tu fuente de información actualizada</div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Noticias</a></li>
+        <li><a href="#">Deportes</a></li>
+        <li><a href="#">Cultura</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="noticia-principal">
+        <img src="https://picsum.photos/id/400/400/300" alt="Imagen noticia principal">
+        <h2>Título de la Noticia Principal</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel arcu sit amet erat ultricies facilisis.</p>
+      </div>
+
+      <div class="noticias-secundarias">
+        <div class="noticia-secundaria">
+          <img src="https://picsum.photos/id/50/100/50" alt="Noticia secundaria 1">
+          <h4>Noticia Secundaria 1</h4>
+        </div>
+        <div class="noticia-secundaria">
+          <img src="https://picsum.photos/id/66/100/50" alt="Noticia secundaria 2">
+          <h4>Noticia Secundaria 2</h4>
+        </div>
+        <div class="noticia-secundaria">
+          <img src="https://picsum.photos/id/33/100/50" alt="Noticia secundaria 3">
+          <h4>Noticia Secundaria 3</h4>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div>
+    <footer>
+        <p>&copy; 2025 Noticias Hoy. Todos los derechos reservados.</p>
+        <p><a href="#" style="color: #ccc; text-decoration: underline;">Política de privacidad</a> | <a href="#" style="color: #ccc; text-decoration: underline;">Términos de uso</a></p>
+      </footer>
+  </div>
+
+</body>
+</html>
+
+
