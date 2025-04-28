@@ -1,0 +1,456 @@
+PAGINA WEB HOTEL
+<!DOCTYPE html>
+<html lang="es">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pagina web completa con Bootstrap </title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="recursos/estilos.css">
+    <!-- Font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <style> 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    color: #E0E0E0;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background-color: white; 
+}
+
+.navbar-brand {
+    color: #000000; 
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: #000000; 
+}
+
+.navbar-nav .nav-link:focus, .navbar-nav .nav-link:hover {
+    color: #00BFFF; 
+}
+
+
+
+/* Buscador */
+.form-control {
+    background-color: #FFFFFF;
+    color: #000000; 
+}
+
+.btn-outline-dark {
+    color: #000000; 
+    border-color: #000000; 
+}
+
+.btn-outline-dark:hover {
+    background-color: #00BFFF; 
+    color: white; 
+    border-color: #00BFFF; 
+}
+
+/* Carousel */
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+}
+
+.carousel-item img {
+    max-height: 600px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Botones */
+.btn-danger {
+    background-color: #000000; 
+    color: white; 
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #00BFFF; 
+    color: white;
+}
+
+.btn-primary {
+    background-color: #000000; 
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #00BFFF; 
+    color: white;
+}
+
+.btn-outline-success {
+    color: #00BFFF; 
+}
+
+.btn-outline-success:hover {
+    background-color: #00BFFF; 
+    color: white;
+}
+
+.btn-outline-dark {
+    background-color: transparent;
+    color: #000000; 
+    border: 1px solid #000000; 
+}
+
+.btn-outline-dark:hover {
+    background-color: #00BFFF; 
+    color: white;
+    border: 1px solid #00BFFF;
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+.card-title {
+    color: #00BFFF;
+    font-weight: 600;
+}
+
+.card-text {
+    color: black;
+}
+
+.card .btn {
+    background-color: #000000; 
+    color: white;
+    border: none;
+}
+
+.card .btn:hover {
+    background-color: #00BFFF; 
+    color: white;
+}
+
+/* Modales */
+.modal-content {
+    background-color: #000000;
+    color: white;
+}
+
+.modal-dialog {
+    margin-top: 50px;
+}
+
+.modal-header .modal-title {
+    color: #E0E0E0;
+}
+
+/* Tipografías */
+h3, h4 {
+    color: #E0E0E0;
+    font-weight: 700;
+}
+
+h5 {
+    color: #E0E0E0;
+    font-weight: 700;
+}
+
+h6 {
+    color: white;
+    font-weight: 300;
+}
+
+/* Acordeón */
+.accordion-button {
+    background-color: white;
+    color: #000000; 
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #00BFFF; 
+    color: white;
+}
+
+.accordion-body {
+    background-color: white;
+    color: #000000;
+    font-size: 14px;
+}
+
+/* Footer y iconos */
+.footer .fa-bounce {
+    font-size: 24px;
+}
+
+.fa-brands {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.fa-brands:last-child {
+    margin-right: 0;
+}
+    </style>
+  
+</head>
+<body>  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+    
+      <a class="navbar-brand" href="#">
+        <img src="recursos/logo.png" width="60" height="60" class="align-middle me-2">
+        Zen Aura
+      </a>
+  
+      <!-- Botón para móviles -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+   
+      <div class="collapse navbar-collapse" id="navbarNav">
+        
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Habitaciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Reservas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        </ul>
+  
+        <!-- Buscador -->
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+          <button class="btn btn-outline-dark" type="submit">Buscar</button>
+        </form>
+      </div>
+
+    </div>
+  </nav>
+  <header class="d-flex align-items-center justify-content-center" style="max-height: 600px;">
+      
+    <div id="Carousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+   
+        <div class="carousel-item active">
+          <img src="https://picsum.photos/1920/1080?random=1" class="d-block w-100" alt="Noticia 1">
+          <div class="carousel-caption custom-caption">
+            <h6> Relájate en nuestra piscina de ensueño </h6>
+            <p>Un espacio pensado para reconectar cuerpo y mente.</p>
+          </div>
+        </div>
+     
+        <div class="carousel-item">
+          <img src="https://picsum.photos/1920/1080?random=2" class="d-block w-100" alt="Noticia 2">
+          <div class="carousel-caption custom-caption">
+            <h6 class="text-white">Habitaciones con alma y confort</h6>
+            <p class="text-white">Cada detalle está diseñado para tu descanso profundo.</p>
+          </div>
+        </div>
+        <!-- Botones de slide -->
+        <div class="carousel-item">
+          <img src="https://picsum.photos/1920/1080?random=3" class="d-block w-100" alt="Noticia 3">
+          <div class="carousel-caption custom-caption">
+            <h6>Sabores que calman y sorprenden </h6>
+            <p> Una experiencia gastronómica que alimenta todos los sentidos.</p>
+          </div>
+        </div>
+      </div>
+  
+   
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+    </div>
+  </header>
+  <main class="container my-4">
+    <!-- Contenedor general para noticias y sidebar -->
+    <div class="row">
+    
+      <!-- Noticias recientes (necesita otro row si no le estas diciendo que eso es una columna)-->
+      <section class="col-lg-8 order-1 order-lg-0">
+        <h3 class="mb-3">Habitaciones</h3>
+        <div class="row">
+          <!-- Tarjeta 1 -->
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <img src="https://picsum.photos/400/250?random=1" class="card-img-top" alt="Noticia 1">
+              <div class="card-body">
+                <h4 class="card-title">Suite Serenity</h4>
+                <p class="card-text">Un refugio donde el tiempo se detiene. El diseño minimalista y los detalles naturales te invitan a sumergirte en una paz profunda.</p>
+                <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalNoticia1">Leer más</a>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Tarjeta 2 -->
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <img src="https://picsum.photos/400/250?random=2" class="card-img-top" alt="Noticia 2">
+              <div class="card-body">
+                <h4 class="card-title">Suite Bloom</h4>
+                <p class="card-text">  Sumérgete en un refugio vegetal.La serenidad y la frescura se fusionan para crear un ambiente revitalizante y lleno de vida. </p>
+                <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalNoticia2">Leer más</a>
+              </div>
+            </div>
+          </div>
+          
+  
+        </div>
+      </section>
+  
+      <!-- Sidebar-->
+      <aside class="col-lg-4 order-0 order-lg-1">
+        <h3 class="mb-3">Categorías</h3>
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action">Yoga y meditación</a>
+          <a href="#" class="list-group-item list-group-item-action">Spa y terapias naturales</a>
+          <a href="#" class="list-group-item list-group-item-action">Piscina zen</a>
+          <a href="#" class="list-group-item list-group-item-action">Sabores de la tierra</a>
+          <a href="#" class="list-group-item list-group-item-action">Actividades en la naturaleza</a>
+        </div>
+      </aside>
+    </div>
+     <!-- Sección de Opinión -->
+     <section id="opinion" class="mt-4">
+      <h3 class="mb-3">Preguntas Frecuentes</h3>
+
+      <div class="accordion" id="accordionOpinion">
+          <!-- Primer item -->
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    ¿Qué tipo de actividades de relajación ofrece Aura Zen?
+                  </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionOpinion">
+                  <div class="accordion-body">
+                    Aura Zen ofrece sesiones diarias de meditación guiada, clases de yoga al amanecer, caminatas conscientes en la naturaleza y talleres de respiración consciente. Todas nuestras actividades están diseñadas para ayudarte a desconectar del estrés y reconectar contigo mismo.
+                  </div>
+              </div>
+          </div>
+
+          <!-- Segundo item -->
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    ¿El menú del hotel es apto para dietas especiales?
+                  </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionOpinion">
+                  <div class="accordion-body">
+                    Sí. Nuestro restaurante cuenta con opciones veganas, vegetarianas, sin gluten y menús personalizados según necesidades nutricionales. Todos los ingredientes son frescos, orgánicos y de origen local para garantizar calidad y bienestar.
+                  </div>
+              </div>
+          </div>
+
+          <!-- Tercer item -->
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    ¿Aura Zen es un hotel solo para adultos?
+                  </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionOpinion">
+                  <div class="accordion-body">
+                    Sí, Aura Zen está diseñado exclusivamente para adultos. Nuestra misión es ofrecer un entorno de tranquilidad absoluta, ideal para retiros personales, escapadas en pareja o experiencias de bienestar profundo sin distracciones.
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  </main>
+  <!-- Modales -->
+  <div class="modal fade" id="modalNoticia1" tabindex="-1" aria-labelledby="modalNoticia1Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalNoticia1Label">Un refugio de calma absoluta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>La <strong>Suite Serenity</strong> ocupa 45 m² y está diseñada con líneas minimalistas y materiales naturales. Incluye:</p>
+              <ul>
+                <li>Cama king size con colchón ortopédico.</li>
+                <li>Zona de estar con sillón reclinable y mesita auxiliar.</li>
+                <li>Baño privado con ducha efecto lluvia y amenidades ecológicas.</li>
+                <li>Terraza privada con vistas al jardín zen.</li>
+              </ul>
+              <p>Precio desde <strong>150 €/noche</strong>, incluye desayuno buffet saludable y acceso ilimitado al spa.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalNoticia2" tabindex="-1" aria-labelledby="modalNoticia2Label" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="modalNoticia1Label">Donde la naturaleza florece</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>La <strong>Suite Bloom</strong> de 50 m² fusiona confort y frescura natural. Dispone de:</p>
+            <ul>
+              <li>Cama queen size con ropa de lino orgánico.</li>
+              <li>Pequeño jardín interior con plantas aromáticas.</li>
+              <li>Zona de trabajo con escritorio ergonómico y conexión Wi-Fi de alta velocidad.</li>
+              <li>Baño con bañera exenta y kit de té relajante.</li>
+            </ul>
+            <p>Tarifa desde <strong>170 €/noche</strong>, incluye menú de bienvenida vegetariano y sesión de yoga privada de 30 min.</p>
+          </div>
+      </div>
+  </div>
+</div>
+<footer class="bg-light text-dark py-3 mt-4">
+  <div class="container">
+    <!-- Redes sociales centradas con animación -->
+    <div class="d-flex justify-content-center gap-3 mb-2">
+      <a href="#"><i class="fab fa-facebook-f fa-bounce text-black"></i></a>
+      <a href="#"><i class="fab fa-instagram fa-bounce text-black"></i></a>
+      <a href="#"><i class="fab fa-youtube fa-bounce text-black"></i></a>
+      <a href="#"><i class="fab fa-x-twitter fa-bounce text-black"></i></a>
+      <a href="#"><i class="fab fa-tiktok fa-bounce text-black"></i></a>
+    </div>
+
+  
+    <div class="text-center small mb-2">&copy; 2025 Zen Aura. Todos los derechos reservados.</div>
+
+    <!-- Enlaces -->
+    <div class="d-flex flex-wrap justify-content-center gap-3 small">
+      <a href="#" class="text-black text-decoration-none">Aviso legal</a>
+      <a href="#" class="text-black text-decoration-none">Política de privacidad</a>
+      <a href="#" class="text-black text-decoration-none">Accesibilidad</a>
+      <a href="#" class="text-black text-decoration-none">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+message.txt
+17 KB
