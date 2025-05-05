@@ -11,35 +11,91 @@ public class MainAlumn {
 
         //alumnosEj();
 
-        System.out.println("Cursos con duracion mayor a 5 horas: ");
-        cursoList().stream().filter(c -> c.getDuracion() > 5).forEach(System.out::println);
+        //Pensamos en esto como una forma más declarativa o practica de trabajar con colecciones, es decir, cuando tenemos arrays, listas, etc y necesitamos hacer cosas
+        // esto se puede hacer sin necesidad de programación funcional pero es una forma más rápida y practica una vez lo entiendes.
+        //Por lo general cuando vas a trabajar con stream piensa en que va a ser coleccion.stream().metododestream.imprimir, algunas veces estos metodos intermedios requieren mas
+        //Entendiendo esto como cualquier programador tira de internet, nadie se sabe todos los metodos stream de memoria.
 
-        System.out.println("Cursos con duracion menor a 2 horas: ");
-        cursoList().stream().filter(c -> c.getDuracion() < 2).forEach(System.out::println);
+        method1();
 
-        System.out.println("Titulos de cursos con cantidad de videos mayor a 50: ");
-        cursoList().stream().filter(c -> c.getVideos() > 50).map(Curso::getTitulo).forEach(System.out::println);
+        method2();
 
-        System.out.println("Títulos de 3 cursos con mayor duración:");
-        cursoList().stream()
-                .sorted((c1, c2) -> Float.compare(c2.getDuracion(), c1.getDuracion()))
-                .limit(3)
+        method3();
+
+        method4();
+
+        method5();
+
+        method6();
+
+        method7();
+
+        method8();
+
+    }
+
+    private static void method8() {
+        System.out.println("todos los titulos de los cursos.");
+        cursoList()
+                .stream()
                 .map(Curso::getTitulo)
                 .forEach(System.out::println);
+    }
 
-        System.out.println("Duracion Total de todos los cursos: ");
-        Double total = cursoList().stream().mapToDouble(Curso::getDuracion).sum();
-        System.out.println(total);
-
-        System.out.println("Cursos con alumnos inscritos menor a 500:");
-        cursoList().stream().filter(curso -> curso.getAlumnos() < 500).map(Curso::getTitulo).forEach(System.out::println);
-
+    private static void method7() {
         System.out.println("Obtener el curso con mayor duración.");
-        cursoList().stream().max(Comparator.comparing(Curso::getDuracion)).ifPresent(System.out::println);
+        cursoList()
+                .stream()
+                .max(Comparator.comparing(Curso::getDuracion))//max es una operacion propia de stream(), stream tiene un cristo de operaciones. Esta lo que hace es buscar el maximo elemento segun un criterio, en esste caso creo un comparador para la duracion y cojo el maximo.
+                .ifPresent(System.out::println);//El metodo max devuelve un optional, si no hay nada, el optional sera vacio, si hay algo, el optional contendra el elemento. En este caso el metodo ifPresent, es un metodo que solo ejecuta el metodo si el optional no esta vacio.
+    }
 
-        System.out.println("todos los titulos de los cursos.");
-        cursoList().stream().map(Curso::getTitulo).forEach(System.out::println);
+    private static void method6() {
+        System.out.println("Cursos con alumnos inscritos menor a 500:");
+        cursoList()
+                .stream()
+                .filter(curso -> curso.getAlumnos() < 500)
+                .map(Curso::getTitulo)
+                .forEach(System.out::println);
+    }
 
+    private static void method5() {
+        System.out.println("Duracion Total de todos los cursos: ");
+        Double total = cursoList().stream().mapToDouble(Curso::getDuracion).sum();//Esto es igual que el method 4, utilizo maptodoubble para convmertir, es como usar un (double) delante de algo para convertirlo y luego sum() que ese metodo suma todo
+        System.out.println(total);
+    }
+
+    private static void method4() {
+        System.out.println("Títulos de 3 cursos con mayor duración:");
+        cursoList().stream()//Aquí volvemos a usar stream, en todos los ejercicios usamos stream para poder trabajar con cada elemento de la lista.
+                .sorted((c1, c2) -> Float.compare(c2.getDuracion(), c1.getDuracion()))//Aqui usamos sorted, sorted inicialmente se usa para ordenar y ya pero uso un compare para comparar valores y ordenadr de mayor a menor
+                .limit(3)//Luego con esto lo que hago es coger los 3 primeros, si no hiciese el limit me devolveria la lista entera ordenado de mayor a menor
+                .map(Curso::getTitulo)//Aquí mapeamos o convertimos, hasta ahora hemos ordenado elementos "curso", aqui lo convertimos o accedemos a lo que necesitemos, en este caso necesitamos el titulo de los 3 cursos, si por ejemplo pusiera get horas, me devolverian las horas
+                .forEach(System.out::println);
+    }
+
+    private static void method3() {
+        System.out.println("Titulos de cursos con cantidad de videos mayor a 50: ");
+        cursoList()
+                .stream()
+                .filter(c -> c.getVideos() > 50)
+                .map(Curso::getTitulo).forEach(System.out::println);
+    }
+
+    private static void method2() {
+        System.out.println("Cursos con duracion menor a 2 horas: ");
+        cursoList()
+                .stream()
+                .filter(c -> c.getDuracion() < 2)
+                .forEach(System.out::println);
+    }
+
+    private static void method1() {
+        System.out.println("Cursos con duracion mayor a 5 horas: ");
+        cursoList()
+                .stream()//Piensa en un "stream" como una cinta por la que van pasando los objetos uno a uno y tú decides qué hacer con ellos mientras van pasando.
+                .filter(c -> c.getDuracion() > 5)//Filter se usa mucho ya que es como su nombre indica, un filtro donde metemos una condición, como si fuese un if
+                .forEach(System.out::println);//el foreach es como un for, consume la lista ya "procesada" y lo imprimimos.
     }
 
     public static void alumnosEj()
