@@ -141,6 +141,91 @@ public class MainAlumn {
 
     }
 
+    //A) imprimir todos aquellos alumnos cuyo nombre empieza con el caracter ‘L’ o ‘G’.
+
+    private static void methodA() {
+        System.out.println("Alumnos que empiezan por `L` o `G`: ");
+        alumnoList()
+                .stream()
+                .filter(a -> a.getNombres().startsWith("L") || a.getNombres().startsWith("G"))
+                .forEach(System.out::println);
+    }
+
+    //B) el metodo count() que vendría siendo una operación terminal (mencionada anteriormente) y con la que devolvemos la longitud de la lista
+    private static void methodB() {
+        System.out.println("Número de alumnos en total");
+        long totalAlumnos = alumnoList().stream().count();
+        System.out.println(totalAlumnos);
+    }
+    //C) Obtener los alumnos con notas mayores a 9 y que el curso sea PHP
+    private static void methodC() {
+        System.out.println("Alumnos con notas mayores a 9 en el curso de PHP: ");
+        alumnoList()
+                .stream()
+                .filter(a -> a.getNota() > 9 && a.getNombreCurso().equals("PHP"))
+                .forEach(System.out::println);
+    }
+    //D) Imprimir los 2 alumnos de la lista con el metodo limit(numero_elementos)
+    private static void methodD() {
+        alumnoList()
+                .stream()
+                .limit(2).
+                forEach(System.out::println);
+    }
+    //E) Obtener el alumno que tiene la menor edad.
+    private static void methodE() {
+        alumnoList()
+                .stream()
+                .min(Comparator.comparing(Alumno::getEdad))
+                .ifPresent(System.out::println);
+    }
+    //F) Obtener el alumno que tiene la mayor edad
+    private static void methodF() {
+        alumnoList()
+                .stream()
+                .max(Comparator.comparing(Alumno::getEdad))
+                .ifPresent(System.out::println);
+    }
+    //G) Obtener el primer alumno de la lista con el metodo findFirst()
+    private static void methodG() {
+        alumnoList()
+                .stream()
+                .findFirst()
+                .ifPresent(System.out::println);
+    }
+    //H) Obtener los alumnos cuyos nombres de curso termine con el caracter ‘t’:
+    private static void methodH() {
+        alumnoList()
+                .stream()
+                .filter(a -> a.getNombreCurso().toUpperCase().endsWith("T")) //para que veas como convertirlo a mayusculas antes
+                .forEach(System.out::println);
+    }
+    //I) Obtener los alumnos cuyos nombres de curso contengan el caracter ‘a’
+    private static void methodI() {
+        alumnoList()
+                .stream()
+                .filter(a -> a.getNombreCurso().toLowerCase().contains("a")) //para que veas como convertirlo a minusculas antes
+                .forEach(System.out::println);
+    }
+    //J) Obtener los alumnos cuya longitud de nombres sea mayor a 10
+    private static void methodJ() {
+        alumnoList()
+                .stream()
+                .filter(a -> a.getNombres().length() > 10)
+                .forEach(System.out::println);
+    }
+    //K) Obtener los alumnos, cuyo nombre empiece con el caracter ‘P’ y la longitud de su nombre sea <= a 6//
+    private static void methodK() {
+        System.out.println("Ej K");
+        alumnoList().stream()
+                .filter(alumno -> {
+                    String primerNombre = alumno.getNombres().split(" ")[0]; //split para separar nombre y apellido: separar por cada espacio.
+                    return primerNombre.length() <= 6 && primerNombre.startsWith("G");
+                })
+                .forEach(System.out::println);
+
+    }
+
 
     public static List<Alumno> alumnoList()
     {
