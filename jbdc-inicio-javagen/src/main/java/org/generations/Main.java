@@ -7,6 +7,7 @@ import org.generations.repository.EmpleadoRepository;
 import org.generations.repository.OficinaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,6 +21,12 @@ public class Main {
         {
             System.out.println(e.toString());
         }
+
+        System.out.println("////////////////EMPLEADO UNICO ////////////////////////");
+        //Leemos un empleado concreto
+        Optional<Empleado> empleado = empleadoRepository.readEmpleado(3);
+        System.out.println(empleado.toString());
+
 
         System.out.println("////////////////OFICINAS////////////////////////");
 
