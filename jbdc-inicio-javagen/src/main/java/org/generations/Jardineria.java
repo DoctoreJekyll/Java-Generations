@@ -17,9 +17,6 @@ public class Jardineria {
 
 
     public static void main(String[] args) {
-
-        Scanner scanerMain = new Scanner(System.in);
-
         menu();
     }
 
@@ -84,7 +81,7 @@ public class Jardineria {
                     System.out.print("Extensión: ");
                     nuevo.setExtension(scanner.nextLine());
                     System.out.print("Código oficina: ");
-                    nuevo.setCodigoOficina(scanner.nextLine());
+                    validateOficina(nuevo);
                     System.out.print("Código jefe: ");
                     nuevo.setCodigoJefe(Integer.parseInt(scanner.nextLine()));
                     System.out.print("Puesto: ");
@@ -116,7 +113,7 @@ public class Jardineria {
                     System.out.print("Nueva extensión: ");
                     empAct.setExtension(scanner.nextLine());
                     System.out.print("Nuevo código oficina: ");
-                    empAct.setCodigoOficina(scanner.nextLine());
+                    validateOficina(empAct);
                     System.out.print("Nuevo código jefe: ");
                     empAct.setCodigoJefe(Integer.parseInt(scanner.nextLine()));
                     System.out.print("Nuevo puesto: ");
@@ -144,6 +141,27 @@ public class Jardineria {
                     System.out.println("Opción no válida.");
             }
         }
+    }
+
+    private static void validateOficina(Empleado nuevo) {
+        String codigoOficina;
+        while (true) {
+            System.out.print("Código de oficina: ");
+            codigoOficina = scanner.nextLine();
+
+            Optional<Oficina> oficina = oficinaRepo.readOficina(codigoOficina);
+            if (oficina.isPresent()) {
+                break; // Oficina válida, salimos del bucle
+            } else {
+                System.out.println("La oficina no existe. Por favor, introduce un código válido.");
+                System.out.println("Oficinas disponibles:");
+                List<Oficina> oficinas = oficinaRepo.getOficinas();
+                for (Oficina o : oficinas) {
+                    System.out.println("- " + o.getCodigoOficina() + " | " + o.getCiudad());
+                }
+            }
+        }
+        nuevo.setCodigoOficina(codigoOficina);
     }
 
     private static void menuOficinas() {

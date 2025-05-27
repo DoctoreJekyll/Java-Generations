@@ -56,6 +56,7 @@ public class EmpleadoRepository {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
+                empleado = new Empleado();
                 loadEmpleado(empleado, resultSet);
             }
         } catch (SQLException e) {

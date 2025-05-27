@@ -11,7 +11,7 @@ import java.util.Optional;
 public class OficinaRepository {
 
     //Creamos la query o querys
-    private static final String SELECT_OFICINAS = "SELECT * FROM oficina";
+    private final String SELECT_OFICINAS = "SELECT * FROM oficina";
 
     //Creamos la conexion
     private Connection getConnection() throws SQLException {
