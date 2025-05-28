@@ -128,12 +128,12 @@ public class Jardineria {
 
                     Optional<Empleado> empleadoEliminar = empleadoRepo.readEmpleado(idEliminar);
                     if (empleadoEliminar.isEmpty()) {
-                        System.out.println("❌ Empleado no encontrado. No se puede eliminar.");
+                        System.out.println("Empleado no encontrado. No se puede eliminar.");
                         break;
                     }
 
                     empleadoRepo.deleteEmpleado(idEliminar);
-                    System.out.println("✅ Empleado eliminado correctamente.");
+                    System.out.println("Empleado eliminado correctamente.");
                     break;
                 case "0":
                     return;
@@ -218,7 +218,15 @@ public class Jardineria {
                     }
                     Oficina oficinaActualizar = oficinaActualizarOpt.get();
                     System.out.print("Nueva ciudad: ");
-                    oficinaActualizar.setCiudad(scanner.nextLine());
+                    String newData = scanner.nextLine();
+                    if (!newData.isEmpty()) {
+                        oficinaActualizar.setCiudad(newData);
+                        System.out.println("Nueva ciudad guardada.");
+                    }
+                    else
+                    {
+                        oficinaActualizar.setCiudad(oficinaActualizar.getCiudad());
+                    }
                     System.out.print("Nuevo país: ");
                     oficinaActualizar.setPais(scanner.nextLine());
                     System.out.print("Nueva región: ");
