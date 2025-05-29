@@ -67,7 +67,7 @@ public class Jardineria {
                     try {
                         Optional<Oficina> oficinaExistenteOpt = repoOfi.leerOficinaxId(codigoModificar);
 
-                        leerYModificarCampos(scanner, oficinaExistenteOpt.get(), repoOfi);
+                        //leerYModificarCampos(scanner, oficinaExistenteOpt.get(), repoOfi);
 
                         // Utilizamos las posibilidades de la clase Optional para programación funcional
                         /*oficinaExistenteOpt.ifPresentOrElse(
@@ -85,8 +85,6 @@ public class Jardineria {
                         );*/
                     } catch (SQLException e) {
                         System.out.println("Error al modificar la oficina: " + e.getMessage());
-                    } catch (IllegalAccessException e) {
-                        throw new RuntimeException(e);
                     }
                     break;
                 }
@@ -139,9 +137,8 @@ public class Jardineria {
         return oficinaExistente;
     }
 
-    private static void leerYModificarCampos(Scanner scanner, Oficina oficina, OficinaRepo repo) throws IllegalAccessException, SQLException {
+   /* private static void leerYModificarCampos(Scanner scanner, Oficina oficina, OficinaRepo repo) throws IllegalAccessException, SQLException {
         boolean seguir = true;
-        boolean otravez = false;
         // Obtenemos los campos de la oficina
         Field[] listaCampos = oficina.getClass().getDeclaredFields();
         // Generamos una lista con el nombre del campo y su valor mediante reflexión
@@ -191,5 +188,5 @@ public class Jardineria {
             }
         }
         repo.actualizarOficina(oficina);
-    }
+    }*/
 }

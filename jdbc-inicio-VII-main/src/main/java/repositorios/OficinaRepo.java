@@ -92,6 +92,17 @@ public class OficinaRepo {
         }
     }
 
+    public void eliminarOficina(String codigo) throws SQLException {
+        String query = "DELETE FROM oficina WHERE codigo_oficina = ?";
+
+        try (PreparedStatement statement = obtenerConexion().prepareStatement(query)) {
+            statement.setString(1, codigo);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Oficina extractOficinaFrom(ResultSet rs) throws SQLException {
         Oficina oficina = new Oficina();
         oficina.setCodigoOficina(rs.getString("codigo_oficina"));

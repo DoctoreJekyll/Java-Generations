@@ -1,14 +1,11 @@
 package controladores;
 
-import modelos.Oficina;
-
 import java.sql.SQLException;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class MenuPpal {
 
-    public void presentarMenuPpal() throws SQLException {
+    public void presentarMenuPpal() throws SQLException, IllegalAccessException {
         Scanner scanner = new Scanner(System.in);
         boolean seguir = true;
         OficinaCtrl oficinaCtrl = new OficinaCtrl();
@@ -41,10 +38,13 @@ public class MenuPpal {
                     break;
                 }
                 case "4": {
-                    oficinaCtrl.modifiarOficina();
+                    oficinaCtrl.modificarOficina();
                     break;
                 }
-                /*case "5" -> .delete();*/
+                case "5" :{
+                    oficinaCtrl.eliminarOficina();
+                    break;
+                }
                 case "6": {
                     seguir = false;
                     break;
