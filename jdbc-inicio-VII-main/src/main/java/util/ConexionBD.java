@@ -14,7 +14,7 @@ public class ConexionBD {
     private static Connection conex;
 
     public static Connection creaConexion() throws SQLException {
-        if(conex == null) {
+        if(conex == null || conex.isClosed()) {
             conex = DriverManager.getConnection(url, usuario, clave);
         }
         return conex;
@@ -27,3 +27,4 @@ public class ConexionBD {
     }
 
 }
+

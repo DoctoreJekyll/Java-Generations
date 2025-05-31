@@ -23,4 +23,5 @@ public class Oficina {
         return "Oficina [" + codigoOficina + ", " + ciudad + ", " + pais + ", " + region + ", " +
                 codigoPostal + ", " + telefono + ", " + lineaDireccion1 + ", " + lineaDireccion2 + "]";
     }
+
 }

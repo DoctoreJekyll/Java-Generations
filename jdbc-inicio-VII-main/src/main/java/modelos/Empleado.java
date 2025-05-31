@@ -22,5 +22,10 @@ public class Empleado {
                     ", apellido2=" + apellido2 + "]";
         }
 
+        public void game()
+        {
+
+        }
+
 
 }

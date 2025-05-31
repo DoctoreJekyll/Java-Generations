@@ -50,7 +50,8 @@ public class OficinaRepo {
         // El try conrecursos prepara la sentencia
         try (
                 PreparedStatement stmt = obtenerConexion().prepareStatement(sqlQuery)
-        ) {
+        )
+        {
             // asignamos el valor del parámetro de la query
             stmt.setString(1, id);
             // obtenemos el resultado
@@ -59,6 +60,8 @@ public class OficinaRepo {
             if (rs.next()) {
                 oficina = extractOficinaFrom(rs);
             }
+
+            rs.close();
         }
         return Optional.ofNullable(oficina);
     }
@@ -74,7 +77,7 @@ public class OficinaRepo {
 
     }
 
-    public boolean actualizarOficina(Oficina oficina) throws SQLException {
+    public void actualizarOficina(Oficina oficina) throws SQLException {
         String sql = "UPDATE oficina SET ciudad = ?, pais = ?, region = ?, codigo_postal = ?, telefono = ?, linea_direccion1 = ?, linea_direccion2 = ? WHERE codigo_oficina = ?";
 
         try (PreparedStatement stmt = obtenerConexion().prepareStatement(sql)) {
@@ -87,8 +90,7 @@ public class OficinaRepo {
             stmt.setString(7, oficina.getLineaDireccion2());
             stmt.setString(8, oficina.getCodigoOficina());
 
-            int filasAfectadas = stmt.executeUpdate();
-            return filasAfectadas > 0;
+            stmt.executeUpdate();
         }
     }
 

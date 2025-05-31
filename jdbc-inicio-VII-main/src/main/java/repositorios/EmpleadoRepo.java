@@ -43,17 +43,22 @@ public class EmpleadoRepo {
         return empleados;
     }
 
-    public Optional<Empleado> leerEmpleado(Integer id) throws SQLException {
+    public Optional<Empleado> leerEmpleado(Integer id){
         Empleado empleado = null;
         String sql = "SELECT * FROM empleado WHERE codigo_empleado = ?";
-        try(PreparedStatement stmt = obtenerConexion().prepareStatement(sql)) {
+        try (Connection c = obtenerConexion();
+             PreparedStatement stmt = c.prepareStatement(sql)) {
             stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if(rs.next()) {
-                empleado = cargarEmpleado(rs);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    empleado = cargarEmpleado(rs);
+                }
             }
-            return Optional.ofNullable(empleado);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
+
+        return Optional.ofNullable(empleado);
     }
 
     private Empleado cargarEmpleado(ResultSet rs) throws SQLException {

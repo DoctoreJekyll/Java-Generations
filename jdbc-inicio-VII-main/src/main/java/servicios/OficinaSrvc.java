@@ -30,8 +30,8 @@ public class OficinaSrvc implements IOficinaSrvc{
     }
 
     @Override
-    public boolean actualizarOficina(Oficina oficina) throws SQLException {
-        return ofiRepo.actualizarOficina(oficina);
+    public void actualizarOficina(Oficina oficina) throws SQLException {
+        ofiRepo.actualizarOficina(oficina);
     }
 
     @Override
