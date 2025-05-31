@@ -43,7 +43,7 @@ public class OficinaCtrl {
 
         oficinaSrvc.crearOficina(ofi);
 
-        //Comprobamos si se ha creado, esto es completamente opcional porque nunca vamos a llegar aqui o casi nunca
+        //Comprobamos si se ha creado, esto es completamente opcional porque nunca vamos a llegar aquí o casi nunca
         Optional<Oficina> ofiGrabada = oficinaSrvc.listarOficina(ofi.getCodigoOficina());
         ofiGrabada.ifPresentOrElse(System.out::println, ()->{
             System.out.println("No existe el id de la oficina: ");
@@ -77,7 +77,7 @@ public class OficinaCtrl {
 
             leerYModificarCampos(scanner, oficinaExistenteOpt.get(), ofiService);
 
-            // Utilizamos las posibilidades de la clase Optional para programación funcional
+            // ¿Utilizamos las posibilidades de la clase Optional para programación funcional
 //                        oficinaExistenteOpt.ifPresentOrElse(
 //                                ofi -> {
 //                                    try {
