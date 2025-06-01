@@ -48,8 +48,8 @@ public class OficinaRepo {
         // Consulta a ejecutar
         final String sqlQuery = "SELECT * FROM oficina WHERE codigo_oficina = ?";
         // El try conrecursos prepara la sentencia
-        try (
-                PreparedStatement stmt = obtenerConexion().prepareStatement(sqlQuery)
+        try (   Connection connection =  obtenerConexion();
+                PreparedStatement stmt = connection.prepareStatement(sqlQuery)
         )
         {
             // asignamos el valor del parámetro de la query
@@ -76,6 +76,7 @@ public class OficinaRepo {
         }
 
     }
+
 
     public void actualizarOficina(Oficina oficina) throws SQLException {
         String sql = "UPDATE oficina SET ciudad = ?, pais = ?, region = ?, codigo_postal = ?, telefono = ?, linea_direccion1 = ?, linea_direccion2 = ? WHERE codigo_oficina = ?";

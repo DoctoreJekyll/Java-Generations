@@ -26,7 +26,9 @@ public class Main {
         String qry = "insert into cliente (codigo_cliente,nombre_cliente,telefono,linea_direccion1,fax,ciudad) values (?,?,?,?,?,?)";
 
         try(PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(qry);) {
+
             DBConnection.getConnection().setAutoCommit(false);
+
             preparedStatement.setInt(1, 105);
             preparedStatement.setString(2, "Sara");
             preparedStatement.setString(3, "test");
@@ -38,6 +40,24 @@ public class Main {
 
 
             preparedStatement.setInt(1, 106);
+            preparedStatement.setString(2, "Carlos");
+            preparedStatement.setString(3, "test");
+            preparedStatement.setString(4, "test");
+            preparedStatement.setString(5, "test");
+            preparedStatement.setString(6, "test");
+            preparedStatement.executeUpdate();
+            System.out.println("Registro insertado " + preparedStatement.getUpdateCount());
+
+            preparedStatement.setInt(1, 107);
+            preparedStatement.setString(2, "Carlos");
+            preparedStatement.setString(3, "test");
+            preparedStatement.setString(4, "test");
+            preparedStatement.setString(5, "test");
+            preparedStatement.setString(6, "test");
+            preparedStatement.executeUpdate();
+            System.out.println("Registro insertado " + preparedStatement.getUpdateCount());
+
+            preparedStatement.setInt(1, 108);
             preparedStatement.setString(2, "Carlos");
             preparedStatement.setString(3, "test");
             preparedStatement.setString(4, "test");

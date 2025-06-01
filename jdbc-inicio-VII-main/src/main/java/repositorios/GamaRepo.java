@@ -6,6 +6,7 @@ import util.ConexionBD;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class GamaRepo {
 
@@ -80,8 +81,8 @@ public class GamaRepo {
     }
 
 
-    public GamaProducto leerGama(String id){
-        GamaProducto gamaNueva = new GamaProducto();
+    public Optional<GamaProducto> leerGama(String id){
+        GamaProducto gamaNueva = null;
         final String query = "SELECT * FROM gama_producto WHERE gama = ?";
 
         try (Connection c = obtenerConexion();
@@ -100,7 +101,7 @@ public class GamaRepo {
         }catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return gamaNueva;
+        return Optional.ofNullable(gamaNueva);
     }
 
 
@@ -108,7 +109,7 @@ public class GamaRepo {
         String query = "UPDATE gama_producto SET gama = ?, descripcion_texto = ?, descripcion_html = ?, imagen = ? WHERE gama = ?";
 
         try (Connection connection = obtenerConexion();
-                PreparedStatement statement = connection.prepareStatement(query)
+             PreparedStatement statement = connection.prepareStatement(query)
         ) {
             statement.setString(1,gamaProducto.getGama());
             statement.setString(2,gamaProducto.getDescripcion_texto());
@@ -128,9 +129,9 @@ public class GamaRepo {
         try (Connection connection =  obtenerConexion();
                 PreparedStatement preparedStatement =  connection.prepareStatement(query)) {
             preparedStatement.setString(1, id);
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            throw new RuntimeException(ex);
         }
     }
 

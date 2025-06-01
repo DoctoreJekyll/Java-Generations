@@ -6,6 +6,7 @@ import repositorios.GamaRepo;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class GamaProductoSrvc implements IGamaProducto {
 
@@ -32,10 +33,10 @@ public class GamaProductoSrvc implements IGamaProducto {
     }
 
     @Override
-    public GamaProducto leerGama(String id) throws SQLException {
-        GamaProducto gama = new GamaProducto();
-        gama = gamaRepo.leerGama(id);
-        return gama;
+    public Optional<GamaProducto> leerGama(String id) throws SQLException {
+        Optional<GamaProducto> gamaNueva;
+        gamaNueva = gamaRepo.leerGama(id);
+        return gamaNueva;
     }
 
     @Override

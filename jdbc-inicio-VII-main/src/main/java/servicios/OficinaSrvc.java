@@ -21,7 +21,11 @@ public class OficinaSrvc implements IOficinaSrvc{
 
     @Override
     public Optional<Oficina> listarOficina(String idOficina) throws SQLException {
-       return ofiRepo.leerOficinaxId(idOficina);
+        Optional<Oficina> oficina;
+        oficina = ofiRepo.leerOficinaxId(idOficina);
+        return oficina;
+
+        //return ofiRepo.leerOficinaxId(idOficina);
     }
 
     @Override

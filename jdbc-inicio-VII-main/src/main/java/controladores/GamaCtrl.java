@@ -6,6 +6,7 @@ import servicios.GamaProductoSrvc;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class GamaCtrl {
@@ -21,7 +22,6 @@ public class GamaCtrl {
 
     static Scanner sc = new Scanner(System.in);
     static GamaProductoSrvc gamaService = new GamaProductoSrvc();
-
 
 
     public static void main(String[] args) throws SQLException {
@@ -51,6 +51,7 @@ public class GamaCtrl {
                 imprimirListaGamaPorImagen();
                 break;
             case 6:
+                eliminarGama("gamaDomingo");
                 break;
                 default:
                 break;
@@ -62,7 +63,7 @@ public class GamaCtrl {
         //Usuario decide que nombre le ponemos a la gama
         //System.out.println("Inserta el nombre del gama");
         //String nombreGama = sc.next();
-        gamaProducto.setGama("nombreGama");
+        gamaProducto.setGama("gamaDomingo");
         gamaProducto.setDescripcion_texto("Test");
         gamaProducto.setDescripcion_html("Test");
         gamaProducto.setImagen("Test");
@@ -75,11 +76,13 @@ public class GamaCtrl {
             System.out.println(gamaProducto);
         }
     }
+
     public static void imprimirListaGamaPorImagen() throws SQLException {
         for(GamaProducto g : listarGamasPorImagen()){
             System.out.println(g);
         }
     }
+
     public static void imprimirGamaporId() throws SQLException {
         System.out.println(leerGamasporId());
     }
@@ -90,8 +93,8 @@ public class GamaCtrl {
         return gamas;
     }
 
-    public static GamaProducto leerGamasporId() throws SQLException {
-        GamaProducto gamaProducto = new GamaProducto();
+    public static Optional<GamaProducto> leerGamasporId() throws SQLException {
+        Optional<GamaProducto> gamaProducto;
         gamaProducto = gamaService.leerGama("Herbaceas");
         return gamaProducto;
     }
@@ -103,8 +106,12 @@ public class GamaCtrl {
         return gamas;
     }
 
-    public static void actualizarGama() throws SQLException {
-        GamaProducto gamaRecogida = leerGamasporId();
+
+    public static void actualizarGama() throws SQLException
+    {
+        Optional<GamaProducto> optionalGama = leerGamasporId();
+
+        GamaProducto gamaRecogida = optionalGama.get();
         gamaRecogida.setGama("Herramientas");
         gamaRecogida.setDescripcion_texto(gamaRecogida.getDescripcion_texto());
         gamaRecogida.setDescripcion_html("Test");
@@ -114,7 +121,14 @@ public class GamaCtrl {
         gamaService.actualizarGama(gamaActualizada);
     }
 
- public void eliminarGama (String id) throws SQLException {
+    public static void eliminarGama (String id) throws SQLException {
+        Optional<GamaProducto> optionalGama = leerGamasporId();
+        optionalGama = gamaService.leerGama(id);
 
- }
+        GamaProducto gamaElegida= optionalGama.get();
+
+        gamaService.eliminarGama(gamaElegida.getGama());
+    }
+
+
 }

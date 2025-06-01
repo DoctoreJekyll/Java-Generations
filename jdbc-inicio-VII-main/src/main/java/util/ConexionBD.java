@@ -14,6 +14,7 @@ public class ConexionBD {
     private static Connection conex;
 
     public static Connection creaConexion() throws SQLException {
+        //conex.isClosed, este condicional previene de cierres inesperados
         if(conex == null || conex.isClosed()) {
             conex = DriverManager.getConnection(url, usuario, clave);
         }

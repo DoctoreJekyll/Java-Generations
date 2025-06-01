@@ -15,12 +15,14 @@ public class Pool {
 
     public static void main(String[] args) throws SQLException {
         long initTime = System.currentTimeMillis();
+        System.out.println("Arranca el main " + initTime);
 
         for (int i = 0; i < CONNECTION_POOL_SIZE; i++) {
             Connection connection = DBConnection.getConnection();
             connection.close();
         }
         long endTime = System.currentTimeMillis();
+        System.out.println("Termina las conexiones" +  endTime);
 
         System.out.println("<UNK>" + (endTime - initTime) + "ms");
 
