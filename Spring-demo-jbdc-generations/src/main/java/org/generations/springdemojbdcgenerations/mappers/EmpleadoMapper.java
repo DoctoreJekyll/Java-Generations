@@ -1,6 +1,6 @@
 package org.generations.springdemojbdcgenerations.mappers;
 
-import org.generations.springdemojbdcgenerations.models.Empleado;
+import org.generations.springdemojbdcgenerations.dto.Empleado;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -15,7 +15,8 @@ public class EmpleadoMapper implements RowMapper<Empleado> {
         empleado.setApellido1(rs.getString("apellido1"));
         empleado.setApellido2(rs.getString("apellido2"));
         empleado.setEmail(rs.getString("email"));
-        empleado.setCodigo_Oficina(rs.getString("codigo_oficina"));
+        empleado.setPuesto(rs.getString("puesto"));
+
 
 
         //Tener estas lineas me tirar error por lo que solo tenemos que mapear los valores que vamos a pedir en las querys?
@@ -26,7 +27,7 @@ public class EmpleadoMapper implements RowMapper<Empleado> {
 
         //empleado.setExtension(rs.getString("extension"));
         //empleado.setCodigo_jefe(rs.getString("codigo_jefe"));
-        //empleado.setPuesto(rs.getString("puesto"));
+
 
         return empleado;
     }

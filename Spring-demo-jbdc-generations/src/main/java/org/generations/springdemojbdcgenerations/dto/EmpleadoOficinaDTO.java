@@ -1,20 +1,18 @@
-package org.generations.springdemojbdcgenerations.models;
+package org.generations.springdemojbdcgenerations.dto;
 
 import lombok.*;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class Empleado {
-    private Integer id;
+public class EmpleadoOficinaDTO {
+    private String codigo_empleado;
     private String nombre;
     private String apellido1;
     private String apellido2;
-    private String extension;
     private String email;
-    private String codigo_Oficina;
-    private String codigo_jefe;
     private String puesto;
+    private String ciudad;
 }
