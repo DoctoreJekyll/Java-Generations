@@ -45,6 +45,44 @@ public class JardineriaRepository {
         return empleadosList;
     }
 
+    /*
+------------------------------------------------------
+📝 APUNTE: EXPLICACIÓN DE LA QUERY DE TOTAL VENTAS
+------------------------------------------------------
+
+Esta consulta obtiene el total de ventas por categoría (gama) de producto para cada empleado,
+incluyendo información personal del empleado y su oficina.
+
+🔍 ¿Qué devuelve?
+- Código, nombre y apellidos del empleado.
+- Puesto que ocupa.
+- Ciudad de la oficina a la que pertenece.
+- Gama del producto (categoría).
+- Total de ventas realizadas por ese empleado para esa gama.
+
+📦 SELECT:
+- Se seleccionan los datos del empleado (e), la oficina (o), el producto (p)
+  y se calcula el total de ventas con: SUM(dp.cantidad * dp.precio_unidad)
+
+🔗 FROM y JOINs:
+- empleado e
+- JOIN oficina o             → para obtener la ciudad de la oficina.
+- JOIN cliente c             → para saber qué clientes representa ese empleado.
+- JOIN pedido pe             → para obtener los pedidos de esos clientes.
+- JOIN detalle_pedido dp     → para obtener el detalle de cada pedido (precio y cantidad).
+- JOIN producto p            → para obtener la gama (categoría) del producto.
+
+📊 GROUP BY:
+- Se agrupa por empleado y gama para poder sumar las ventas de cada categoría
+  para cada empleado.
+
+📋 ORDER BY:
+- Ordena la lista por código del empleado y luego por gama.
+
+✅ Resultado:
+Una fila por empleado y gama, con su total de ventas acumuladas.
+
+*/
     public List<VentasDTO> getTotalVentasByEmpleado() {
         String qry3= """
                 SELECT

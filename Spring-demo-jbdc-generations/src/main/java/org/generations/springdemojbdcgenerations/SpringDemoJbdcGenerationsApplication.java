@@ -12,36 +12,17 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class SpringDemoJbdcGenerationsApplication {
 
     public static void main(String[] args) {
         //SpringApplication.run(SpringDemoJbdcGenerationsApplication.class, args);
-        ConfigurableApplicationContext context = SpringApplication.run(SpringDemoJbdcGenerationsApplication.class, args);
-        JardineriaServices jardineriaServices = context.getBean(JardineriaServices.class);
+        //ConfigurableApplicationContext context = SpringApplication.run(SpringDemoJbdcGenerationsApplication.class, args);
 
-        System.out.println("----------------EJERCICIO DATOS EMPLEADOS");
-        List<Empleado> empleados = jardineriaServices.getEmpleados();
-        for (Empleado empleado : empleados) {
-            System.out.println(empleado);
-        }
-
-        System.out.println("------------------------------------------------------");
-        System.out.println("------------EJERCICIO EMPLEADO/OFICINAS--------------");
-
-        List<EmpleadoOficinaDTO> empleadoOficinaDTOS = jardineriaServices.getEmpleadoByOficina();
-        for (EmpleadoOficinaDTO emp : empleadoOficinaDTOS) {
-            System.out.println(emp);
-        }
-
-        System.out.println("----------------------------------------------");
-        System.out.println("--------------EJERCICIO VENTAS---------------");
-
-        List<VentasDTO> totalVentasList = jardineriaServices.getTotalVentasByEmpleado();
-        for (VentasDTO ventasDTO : totalVentasList) {
-            System.out.println(ventasDTO);
-        }
+        SpringApplication.run(SpringDemoJbdcGenerationsApplication.class, args);
 
     }
 
