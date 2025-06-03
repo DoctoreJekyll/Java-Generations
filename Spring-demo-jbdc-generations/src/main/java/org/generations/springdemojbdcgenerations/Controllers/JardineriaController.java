@@ -4,20 +4,30 @@ import org.generations.springdemojbdcgenerations.Services.JardineriaServices;
 import org.generations.springdemojbdcgenerations.dto.Empleado;
 import org.generations.springdemojbdcgenerations.dto.EmpleadoOficinaDTO;
 import org.generations.springdemojbdcgenerations.dto.VentasDTO;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@RestController
-@RequestMapping("/api")
+@Controller
+@RequestMapping("/home")
 public class JardineriaController {
 
     private final JardineriaServices jardineriaServices;
 
     public JardineriaController(JardineriaServices jardineriaServices) {
         this.jardineriaServices = jardineriaServices;
+    }
+
+    @GetMapping("/test")
+    public String home(Model model)
+    {
+        // Puedes pasar atributos al HTML si quieres
+        model.addAttribute("mensaje", "¡Bienvenido a Jardinería!");
+        return "index";
     }
 
     // ✅ GET empleados
