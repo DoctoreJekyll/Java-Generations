@@ -5,5 +5,22 @@
 </head>
 <body>
 <h1 th:text="${mensaje}">Mensaje por defecto</h1>
+
+<div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+        </tr>
+        <tr th:each="fila : ${filas}">
+            <td th:text="${fila.id}"></td>
+            <td th:text="${fila.nombre}"></td>
+            <td th:text="${fila.descripcion}"></td>
+        </tr>
+    </table>
+</div>
+
+
 </body>
 </html>

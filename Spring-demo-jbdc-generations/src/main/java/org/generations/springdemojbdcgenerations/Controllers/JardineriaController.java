@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/api")
 public class JardineriaController {
 
     private final JardineriaServices jardineriaServices;
@@ -37,9 +37,13 @@ public class JardineriaController {
     }
 
     // ✅ GET empleados con oficina
-    @GetMapping("/empleados/oficinas")
-    public List<EmpleadoOficinaDTO> getEmpleadosPorOficina() {
-        return jardineriaServices.getEmpleadoByOficina();
+    @GetMapping("/oficinas")
+    public String getEmpleadosPorOficina(Model model) {
+
+        List<EmpleadoOficinaDTO> empleadoByOficina = jardineriaServices.getEmpleadoByOficina();
+        model.addAttribute("empleadoByOficina", empleadoByOficina);
+
+        return "listaOficinas";
     }
 
     // ✅ GET total de ventas por gama
