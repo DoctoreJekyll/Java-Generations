@@ -30,12 +30,6 @@ public class JardineriaController {
         return "index";
     }
 
-    // ✅ GET empleados
-    @GetMapping("/empleados")
-    public List<Empleado> getEmpleados() {
-        return jardineriaServices.getEmpleados();
-    }
-
     // ✅ GET empleados con oficina
     @GetMapping("/oficinas")
     public String getEmpleadosPorOficina(Model model) {
