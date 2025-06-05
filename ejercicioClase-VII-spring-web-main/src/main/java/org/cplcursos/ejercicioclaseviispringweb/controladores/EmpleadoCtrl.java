@@ -1,6 +1,7 @@
 package org.cplcursos.ejercicioclaseviispringweb.controladores;
 
 import org.cplcursos.ejercicioclaseviispringweb.DTOs.EmpleadoDTOLista;
+import org.cplcursos.ejercicioclaseviispringweb.DTOs.OficinaDTOLista;
 import org.cplcursos.ejercicioclaseviispringweb.servicios.JardineriaSrvc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -27,14 +29,30 @@ public class EmpleadoCtrl {
         List<EmpleadoDTOLista> listaEmpleados = jardineriaSrvc.listarEmpleados();
         List<String> cabeceras = List.of("Código", "Nombre", "Apellidos", "Correo", "Ciudad", "Puesto");
 
+        List<Map<String, Object>> filas = new ArrayList<>();
+        for (EmpleadoDTOLista empleadoDTOLista : listaEmpleados) {
+            Map<String, Object> fila = new HashMap<>();
+            fila.put("codigo", empleadoDTOLista.getCodigoEmpleado());
+            fila.put("nombre", empleadoDTOLista.getNombre());
+            fila.put("Apellidos", empleadoDTOLista.getApellido1() + empleadoDTOLista.getApellido2());
+            fila.put("Correo", empleadoDTOLista.getEmail());
+            fila.put("Ciudad", empleadoDTOLista.getNombre());
+            fila.put("Puesto", empleadoDTOLista.getPuesto());
+
+
+
+            filas.add(fila);
+        }
+
+        List<Object> val = new ArrayList<>();
+        for (Map<String, Object> fila : filas) {
+            Object nombre = fila.get("Ciudad"); // o el nombre real de la clave
+            val.add(nombre);
+        }
+
 
         modelo.addAttribute("cabeceras", cabeceras);
-        modelo.addAttribute("filas", listaEmpleados);
-
-        // Procesamos la lista de empleados para rellenar el Map
-        /*Map<String, List<EmpleadoDTOLista>> mapEmpleados = listaEmpleados.stream()
-                .collect(Collectors.groupingBy(EmpleadoDTOLista::getCiudadOficina)
-                );*/
+        modelo.addAttribute("filas", filas);
 
         return "vistaLista";
     }
